@@ -1,10 +1,23 @@
-const setupInput = function () {
+const UPKEY = "Move: up";
+const LEFTKEY = "Move: left";
+const DOWNKEY = "Move: down";
+const RIGHTKEY = "Move: right";
+
+let connection;
+
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
+  stdin.setEncoding('utf8');
   stdin.resume();
+  stdin.on('data', key => {
+    handleUserInput(key);
+  });
   return stdin;
 };
+
+let func;
 
 const handleUserInput = (input) => {
   const stdout = process.stdout;
