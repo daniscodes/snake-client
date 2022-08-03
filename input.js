@@ -1,9 +1,8 @@
-const { msg, hello, good, bad, UPKEY, LEFTKEY, DOWNKEY, RIGHTKEY } = require("./constants");
+const { msg, hello, good, bad, UPKEY, LEFTKEY, DOWNKEY, RIGHTKEY} = require("./constants");
 
 let connection;
 
-
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -19,11 +18,11 @@ let func;
 
 const handleUserInput = (input) => {
   const stdout = process.stdout;
-  const interval = function (input) {
+    const interval = function (input) {
     func = setInterval(() => {
       connection.write(input);
     }, 100);
-  };
+    };
   if (input === '\u0003') {
     stdout.write("Exited snek game. Bye bye.\n");
     process.exit();
