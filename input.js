@@ -1,16 +1,9 @@
-const UPKEY = "Move: up";
-const LEFTKEY = "Move: left";
-const DOWNKEY = "Move: down";
-const RIGHTKEY = "Move: right";
+const { msg, hello, good, bad, UPKEY, LEFTKEY, DOWNKEY, RIGHTKEY } = require("./constants");
 
 let connection;
 
-const msg = "Say: ";
-const hello = "Hello there!";
-const good = "Nice!";
-const bad = "Gotcha!";
 
-const setupInput = function(conn) {
+const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
