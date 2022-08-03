@@ -14,6 +14,10 @@ const connect = function () {
     console.log("Connected to server");
   conn.write("Name: LOL")
 
+  setInterval( func = () => {
+      conn.write("Move: up");
+    }, 500);
+
   conn.on('data', data => {
       console.log(data);
     });
